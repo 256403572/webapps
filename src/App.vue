@@ -1,11 +1,12 @@
 <template>
   <div id="app">
-   <tarbars/>
+   <tarbars></tarbars>
+   <router-view></router-view>
   </div>
 </template>
 <script>
+import tarbars from './components/tarbar.vue'
 export default {
-  import tarbars from './components/tarbar.vue',
   name: 'App',
   components: {
     tarbars
@@ -13,5 +14,5 @@ export default {
 }
 </script>
 <style>
-@import 'assets/css/base.css'
+@import 'assets/css/index.css'
 </style>
