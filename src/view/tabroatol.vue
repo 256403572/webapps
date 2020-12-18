@@ -6,10 +6,12 @@
     </div>
   </div>
 </template>
-
 <script>
 export default {
   name:"tabroatol",
+  components:{
+    // gethubles
+  },
   data:function(){
     return{
       title:['流行','新款','精选'],
@@ -19,6 +21,14 @@ export default {
   methods:{
     handles:function(index){
       this.currentindex=index
+       switch(index){
+        case 0:
+          console.log('0');
+        case 1:
+          console.log('1');
+        case 2:
+          console.log('3');
+      }
     }
   }
 }
@@ -27,14 +37,15 @@ export default {
 <style>
 .tabar{
   display:flex;
+  font-size: 18px;
   width: 100%;
-  height:24px;
+  height:28px;
   text-align: center;
   /* 使页面移动时到一定位置时固定 */
   position:sticky;
   /* 设置头部距离 */
   top: 44px;
-  background-color:#ffffff
+  background-color:#ffffff;
 }
 .tatal{
   flex: 1;

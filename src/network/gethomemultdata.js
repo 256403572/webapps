@@ -4,8 +4,25 @@ export function gethomemultdata(){
     url:'/home/multidata'
   })
 }
-export function gethuble(){
+export function gethuble(type,page){
   return require({
-    url:'/home/data'
+    url:'/home/data',
+    params:{
+      type,
+      page
+    }
+  })
+}
+// export function gitttop(iid){
+//   return require({
+//     url:"/detail",
+//     params:{
+//       iid
+//     }
+//   })
+// }
+export function recommend(){
+  return require({
+    url:'recommend'
   })
 }
