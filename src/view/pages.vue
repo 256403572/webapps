@@ -104,7 +104,9 @@
 			<span class="comment-info-flex">更多</span>
 		</div>
 			<div class="comment-user-info">
-				<span><img :src="avatar" class="avatar">
+				<span>
+          <!-- <img :src="avatar" class="avatar"> -->
+        <img v-lazy="avatar" class="avatar">
 				<span class="uname">{{uname}}</span>
 				</span>
 			</div>
@@ -116,11 +118,13 @@
 			<div class="flex">
 				<div class="comment-info-images" v-for="item in images" :key="item">
 					<img :src="item">
+          <!-- <img v-lazy="item"> -->
 				</div>
 			</div>
       <div class="line"></div>
       <recommend></recommend>
       <shopp @count="counts"></shopp>
+      <total></total>
       <ul>
         <li></li>
         <li></li>
@@ -144,6 +148,8 @@ import SwiperItem from '../components/swipt/swiperltem'
 // import vest from './详情页/vest.vue'
 import recommend from '../view/详情页/recommend.vue'
 import shopp from '../view/详情页/shopp.vue'
+import Total from '../components/total/toast.vue'
+// import {mapActions} from 'vuex'
 export default {
   name: "pages",
   data() {
@@ -186,14 +192,15 @@ export default {
     Swiper,
     SwiperItem,
     recommend,
-    shopp
+    shopp,
+    Total
     // scroll
     // Scroll
     // vest
   },
   created() {
     this.iid=this.$route.params.iid
-    console.log(this.idd);
+    // console.log(this.idd);
     gitttop(this.iid).then(res=>{
          console.log(res);
         this.imger=res.data.result.itemInfo.topImages
@@ -244,6 +251,7 @@ export default {
     })
   },
   methods: {
+    // ...mapActions(['multion']),
   falt:function(index){
       this.gitsindex=index;
       // this.$emit(temptop,index)
@@ -264,8 +272,17 @@ export default {
     vest.iid=this.iid;
     vest.checked=true;
     console.log(vest);
+    // this.multion(vest).then(res=>{
+    //   console.log(this.$toast);
+    //   this.$toast.show(res,2000);
+    // })
     //添加到购物车
-    this.$store.commit('multions',vest);
+    // this.$store.commit('multions',vest)
+    this.$store.dispatch('multion',vest).then(res=>{
+      console.log(res);
+      // console.log(this.$toast);
+      // this.$toast.show(res,2000);
+    })
   }
 }
 }

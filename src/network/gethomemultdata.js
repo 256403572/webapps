@@ -26,3 +26,25 @@ export function recommend(){
     url:'recommend'
   })
 }
+export function category(){
+  return require({
+    url:"/category"
+  })
+}
+export function mait(maitKey){
+  return require({
+    url:"/subcategory",
+    params:{
+      maitKey
+    }
+  })
+}
+export function subcategory(miniWallkey, type){
+  return require({
+    url:"/subcategory/detail",
+    params:{
+      miniWallkey,
+      type
+    }
+  })
+}

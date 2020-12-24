@@ -1,6 +1,7 @@
 <template>
   <div class="git-three" @click="pesh">
-      <img :src="goodlists.show.img" alt="">
+      <!-- <img :src="goodlists.show.img" alt=""> -->
+      <img v-lazy="goodlists.show.img" alt="">
       <div class="git-ate">{{goodlists.title}}</div>
       <div class="git-two">
       <span class="git-one">{{goodlists.price}}</span>

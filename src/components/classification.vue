@@ -1,150 +1,212 @@
 <template>
   <div>
-    <h1>分类</h1>
-    <scroll class="conter">
-      <ul>
-        <li>better-scroll1</li>
-        <li>better-scroll2</li>
-        <li>better-scroll3</li>
-        <li>better-scroll4</li>
-        <li>better-scroll5</li>
-        <li>better-scroll6</li>
-        <li>better-scroll7</li>
-        <li>better-scroll8</li>
-        <li>better-scroll9</li>
-        <li>better-scroll10</li>
-        <li>better-scroll11</li>
-        <li>better-scroll12</li>
-        <li>better-scroll13</li>
-        <li>better-scroll14</li>
-        <li>better-scroll15</li>
-        <li>better-scroll16</li>
-        <li>better-scroll17</li>
-        <li>better-scroll18</li>
-        <li>better-scroll19</li>
-        <li>better-scroll20</li>
-        <li>better-scroll21</li>
-        <li>better-scroll22</li>
-        <li>better-scroll23</li>
-        <li>better-scroll24</li>
-        <li>better-scroll25</li>
-        <li>better-scroll26</li>
-        <li>better-scroll27</li>
-        <li>better-scroll28</li>
-        <li>better-scroll29</li>
-        <li>better-scroll30</li>
-        <li>better-scroll31</li>
-        <li>better-scroll32</li>
-        <li>better-scroll33</li>
-        <li>better-scroll34</li>
-        <li>better-scroll35</li>
-        <li>better-scroll36</li>
-        <li>better-scroll37</li>
-        <li>better-scroll38</li>
-        <li>better-scroll39</li>
-        <li>better-scroll40</li>
-        <li>better-scroll41</li>
-        <li>better-scroll42</li>
-        <li>better-scroll43</li>
-        <li>better-scroll44</li>
-        <li>better-scroll45</li>
-        <li>better-scroll46</li>
-        <li>better-scroll47</li>
-        <li>better-scroll48</li>
-        <li>better-scroll49</li>
-        <li>better-scroll50</li>
-        <li>better-scroll51</li>
-        <li>better-scroll52</li>
-        <li>better-scroll53</li>
-        <li>better-scroll54</li>
-        <li>better-scroll55</li>
-        <li>better-scroll56</li>
-        <li>better-scroll57</li>
-        <li>better-scroll58</li>
-        <li>better-scroll59</li>
-        <li>better-scroll60</li>
-        <li>better-scroll61</li>
-        <li>better-scroll62</li>
-        <li>better-scroll63</li>
-        <li>better-scroll64</li>
-        <li>better-scroll65</li>
-        <li>better-scroll66</li>
-        <li>better-scroll67</li>
-        <li>better-scroll68</li>
-        <li>better-scroll69</li>
-        <li>better-scroll70</li>
-        <li>better-scroll71</li>
-        <li>better-scroll72</li>
-        <li>better-scroll73</li>
-        <li>better-scroll74</li>
-        <li>better-scroll75</li>
-        <li>better-scroll76</li>
-        <li>better-scroll77</li>
-        <li>better-scroll78</li>
-        <li>better-scroll79</li>
-        <li>better-scroll80</li>
-        <li>better-scroll81</li>
-        <li>better-scroll82</li>
-        <li>better-scroll83</li>
-        <li>better-scroll84</li>
-        <li>better-scroll85</li>
-        <li>better-scroll86</li>
-        <li>better-scroll87</li>
-        <li>better-scroll88</li>
-        <li>better-scroll89</li>
-        <li>better-scroll90</li>
-        <li>better-scroll91</li>
-        <li>better-scroll92</li>
-        <li>better-scroll93</li>
-        <li>better-scroll94</li>
-        <li>better-scroll95</li>
-        <li>better-scroll96</li>
-        <li>better-scroll97</li>
-        <li>better-scroll98</li>
-        <li>better-scroll99</li>
-        <li>better-scroll100</li>
-      </ul>
-    </scroll>
+    <home>
+      <div slot="center" class="center">商品分类</div>
+    </home>
+    <div class="link">
+    <div class="title">
+      <div v-for="(item,index) in titles" :key="item.acm" class="popular" :class="{tabs:currindex===index}" @click="hands(index)">
+      {{item.title}}
+      </div>
+    </div>
+    <div class="fourss">
+    <div class="images" v-for="item in link" :key="item.link">
+      <a :href="item.link">
+      <img :src="item.image" alt="">
+      <p>{{item.title}}</p>
+      </a>
+    </div>
+</div>
+    </div>
+    <div class="products">
+    <div class="product" v-for="(item,index) in comprehensive" :key="item" :class="{date:currend===index}" @click="code(index)">
+    <span>{{item}}</span>
+    </div>
+    </div>
+    <!-- <tab-content-detail :category-detail="showCategoryDetail"></tab-content-detail> -->
+    <div class="border">
+    <div v-for="item in lists" :key="item.acm" class="borders">
+      <a :href="item.link">
+        <img v-lazy="item.img" alt="">
+        <p class="tite">{{item.title}}</p>
+        <p class="tites">
+          <span class="orgPrice">￥{{item.orgPrice}}</span>
+          <span>☆</span>
+          <span>{{item.cfav}}</span>
+        </p>
+        </a>
+    </div>
+    </div>
+    <ul>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
   </div>
 </template>
 
 <script>
-import scroll from '../view/scroll.vue'
+// import scroll from '../view/scroll.vue'
+import home from '../view/home.vue'
+import {category} from '../network/gethomemultdata.js'
+// import categorys from '../view/分类/categorys.vue'
+import {mait} from '../network/gethomemultdata.js'
+import {subcategory} from '../network/gethomemultdata.js'
+// import tabContentDetaill from '../view/分类/tabContentDetail.vue'
 export default {
   name:"classification",
   components:{
-    scroll
+    home,
+    // tabContentDetail
+    // categorys
+  },
+  data() {
+    return {
+      titles:[],
+      meky:'',
+      currindex:0,
+      link:[],
+      comprehensive:['综合','新品','销量'],
+      currend:0,
+      dite:[],
+      lists:[],
+      codes:"pop"
+    }
+  },
+  created(){
+    this.category();
+  },
+  methods:{
+    hands(index){
+      this.currindex=index
+      this.meky=this.titles[this.currindex].maitKey
+      console.log(this.meky);
+      mait(this.meky).then(res=>{
+        this.link=res.data.data.list
+        console.log(this.link.length);
+        for (let i = 0; i <=this.link.length; i++) {
+          console.log(this.titles[i].miniWallkey);
+          this.dite=this.titles[i].miniWallkey
+          subcategory(this.dite,"pop").then(res=>{
+            console.log(res);
+            this.lists=res.data
+            console.log(this.lists);
+          })
+        }
+      })
+    },
+    category(){
+      category().then(res=>{
+      console.log(res);
+      this.titles=res.data.data.category.list;
+    })
+    },
+    code(index){
+      this.currend=index
+      // switch (index) {
+      //   case 0:
+      //     this.codes="pop"
+      //     break;
+      //   case 1:
+      //     this.codes="new"
+      //   case 2:
+      //     this.codes="sell"
+      // }
+    }
   }
-  // data(){
-  //   return{
-  //     scroll:null
-  //   }
-  // },
-  // mounted() {
-  //   this.scroll=new BScroll(document.querySelector('.conter'),{
-  //     //监听  有时候我们需要知道滚动的位置。当 probeType 为 1 的时候，会非实时（屏幕滑动超过一定时间后）派发scroll 事件；
-  //     //当 probeType 为 2 的时候，会在屏幕滑动的过程中实时的派发 scroll 事件；当 probeType 为 3 的时候，不仅在屏幕滑动的过程中，
-  //     //而且在 momentum 滚动动画运行过程中实时派发 scroll 事件。如果没有设置该值，其默认值为 0，即不派发 scroll 事件。
-  //     probeType:3,
-  //     //加载
-  //     pullUpLoad:true
-  //   })
-  //   //监听距离
-  //   this.scroll.on('scroll',(position)=>{
-  //     console.log(position);
-  //   })
-  //   //加载更多
-  //   this.scroll.on('pullingUp',()=>{
-  //     console.log('加载更多');
-  //   })
-  // },
 }
 </script>
 
 <style scoped>
-.conter{
-  height: 200px;
-  background-color: red;
+.center{
+  color: #ffffff;
+  font-size: 20px;
+}
+.imger{
+  margin-top: 60px;
+  margin-left: 15px;
+}
+.tabs{
+  background-color: #ffffff;
+  color: red;
+  font-size: 20px;
+  height: 40px;
+  line-height: 40px;
+}
+.popular{
+  text-align: center;
+  margin-top: 20px;
+}
+.title{
+  margin-top: 40px;
+  width: 30%;
+  background-color: #DCDCDC;
+  height: 850px;
+}
+a{
+  text-decoration: none;
+}
+.images img{
+  width: 80px;
+  height: 80px;
+}
+.images p{
+  text-align: center;
+}
+.images{
+  width: 80px;
+}
+.link{
+  display: flex;
+}
+.fourss{
+  margin-left: 15px;
+  margin-top: 60px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 70%;
+}
+.products{
+  line-height: 300px;
+  display: flex;
+  margin-left: 120px;
+  margin-top: -120px;
+}
+.product{
+  flex: 1;
+}
+.date{
+  color: red;
+}
+.date span{
+  border-bottom: 4px solid red;
+} 
+.border{
+  margin-top: -120px;
+  margin-left: 80px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.borders{
+  width: 45%;
+}
+.borders img{
+  height:120px;
+}
+.borders .tite{
+  white-space: nowrap;
   overflow: hidden;
+  text-overflow: ellipsis;
+}
+.borders .tites{
+  text-align: center;
+}
+.borders .tites .orgPrice{
+  color: red;
 }
 </style>

@@ -1,7 +1,8 @@
 <template>
   <div class="recommend">
     <div v-for="item in recommends" :key="item.title" class="text">
-      <img :src="item.image" alt="">
+      <!-- <img :src="item.image" alt=""> -->
+      <img v-lazy="item.image" alt="">
       <div class="title">{{item.title}}</div>
       <div class="discount">
         <span class="discountPrice">{{item.discountPrice}}</span>
