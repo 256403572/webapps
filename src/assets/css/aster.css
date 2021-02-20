@@ -117,27 +117,32 @@ img{
   height: 40px;
   border: 1px solid darkgray;
 }
-.twelve ul li{
-  list-style-type: none;
+.twelve{
   margin-left: 20px;
 }
-.twelve ul li .scores{
+.twelves{
+  display: flex;
+  justify-content: space-around;
+  text-align: justify;
+}
+.twelve .scores{
   margin-left: 10px;
 }
-.twelve{
+/* .twelve ul li .scores{
   text-align: justify;
-}
-.twelve ul li .scores{
-  text-align: justify;
-}
-.twelve ul li .isbetter{
-  margin-left: 15px;
-  border: 1px solid green;
+} */
+.twelve .isbetter{
+  margin-left: 20px;
   background-color: green;
   color: aliceblue;
 }
 .barses{
-  color: green;
+  color: red;
+}
+.barse{
+  color: #FFFFFF;
+  background-color: red;
+  border: 1px solid red;
 }
 .serve{
   text-align: center;

@@ -55,18 +55,16 @@
         <div class="eleven"></div>
         </div>
         <div class="twelve">
-        <ul v-for="item in score" :key="item.name">
-          <li>
-            <span>{{item.name}}</span>
-            <span :class="{barses:item.isBetter='true'}">
-            <span class="scores">{{item.score}}</span>
-            <span class="isbetter">
-            <span v-if="item.isBetter='true'">低</span>
-            <span v-else-if="item.isBetter='fase'">高</span>
-            </span>
-            </span>
-          </li>
-        </ul>
+        <div v-for="item in score" :key="item.name" class="twelves">
+            <p>{{item.name}}</p>
+            <div class="scores">
+            <p :class="{barses:item.isBetter}">{{item.score}}</p>
+            </div>
+            <div class="isbetter">
+            <div :class="{barse:item.isBetter}" v-if="item.isBetter='true'">高</div>
+            <div :class="{barse:item.isBetter}" v-else-if="item.isBetter='flase'">低</div>
+            </div>
+        </div>
       </div>
       </div>
        <div class="serve">
